@@ -9,7 +9,7 @@ return (
         <div className="p-8">
             <div key={index} className="grid-cols-2">
                 <div className="h-96 w-64 max-w-screen-xl relative ">
-                { movie.poster_path === null ? <div className="h-96 w-64 max-w-screen-xl shadow-2xl  bg-gray-800 relative text-white"> Not available</div> :
+                { movie.poster_path === null ? <div className="h-96 w-64 max-w-screen-xl shadow-2xl rounded-xl bg-gray-800 relative text-white"> Not available</div> :
                 <div>
                     <img className="absolute inset-0 h-half w-half rounded-xl shadow-xl" src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt="image"/> 
                     <div className="absolute inset-0 bg-gray-900 bg-opacity-0 text-transparent hover:bg-opacity-75 hover:text-white">
