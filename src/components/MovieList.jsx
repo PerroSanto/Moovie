@@ -11,7 +11,7 @@ return (
                 <div className="h-96 w-64 max-w-screen-xl rounded-sm shadow-2xl overflow-hidden relative ">
                 { movie.poster_path === null ? <div className="h-96 w-64 max-w-screen-xl rounded-sm shadow-2xl overflow-hidden bg-gray-800 relative text-white"> Not available</div> :
                 <div>
-                    <img className="absolute inset-0 h-half w-half" src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}/> 
+                    <img className="absolute inset-0 h-half w-half" src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt="image"/> 
                     <div className="absolute inset-0 bg-gray-900 bg-opacity-0 text-transparent hover:bg-opacity-75 hover:text-white">
                         <div className="m-2">
                             <h1 className="items-start justify-center">Popularidad: {Math.ceil(movie.popularity)} / 100</h1>
