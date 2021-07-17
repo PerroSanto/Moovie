@@ -10,13 +10,12 @@ return (
         <div className="p-8">
             <div key={index}>
                 <div className="h-72 w-48 max-w-screen-xl relative">
-                { movie.poster_path === null ? <div className="h-96 w-64 max-w-screen-xl shadow-2xl rounded-xl bg-gray-800 relative text-white"> Not available</div> :
                 <div>
-                    <img className="absolute inset-0 h-half w-half rounded-xl shadow-xl" src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt="image"/> 
+                    <img className="absolute inset-0 h-half w-half rounded-xl shadow-xl" 
+                    src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt="image"/> 
+
                     <div className="absolute inset-0 bg-gray-900 bg-opacity-0 text-transparent duration-300 hover:bg-opacity-75 hover:text-white">
-                        <div className="m-2 ">
-                            <h1 className="justify-center tracking-wider text-sm">Popularidad: {Math.ceil(movie.popularity)} / 100</h1>
-                            
+                        <div className="m-2 pl-36">
                             <div onClick={() => props.favoriteClick(movie)}>
                             <FavoriteComponent />
                             </div>
@@ -24,7 +23,7 @@ return (
                         </div>
                     </div>
                 </div>
-                }
+
                 </div>
                 <div className="text-left text-sm text-white p-2">
                     <h1>{movie.original_title}</h1>
