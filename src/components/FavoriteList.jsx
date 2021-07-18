@@ -3,12 +3,22 @@ import React from 'react';
 const FavoriteList = (props) => {
     //pasamos el componente desde app y lo ubicamos en el div correspondiente
     const FavoriteComponent = props.favoriteComponent;
+    //console.log(props.movies)
 return (
     <>
+    { props.movies.length === 0 ? 
+
+    <div className="flex grid-cols-7 overflow-x-auto scrollbar">
+        <div className="p-8">
+            <div className="h-72 w-48 max-w-screen-xl shadow-2xl rounded-xl bg-gray-800  text-white text-sm p-2">Agrega tus favoritas</div> 
+        </div>
+    </div>
+
+    :
     <div className=" flex overflow-x-auto scrollbar">
     {props.movies.map((movie, index) => (
         <div className="p-8">
-            <div key={index}>
+            <div key={movie.id}>
                 <div className="h-72 w-48 max-w-screen-xl relative">
                 <div>
                     <img className="absolute inset-0 h-half w-half rounded-xl shadow-xl" 
@@ -35,6 +45,7 @@ return (
         </div>
     ))}
     </div>
+}
     </>
 );
 }; export default FavoriteList;

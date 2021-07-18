@@ -23,7 +23,6 @@ function App() {
     const api = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=es-AR&query=${searchValue}&page=1&include_adult=false`
     const response = await fetch(api);
     const responseJson = await response.json();
-    console.log(responseJson)
     // Esto lo pongo para que cuando inicia la pagina no traiga un array vacio y de error el map.
     if (responseJson.results) {
       setMovies(responseJson.results)
@@ -48,10 +47,10 @@ function App() {
   //agregamos una pelicula al array favorites
   //llamamos a la funcion setFavorites y le pasamos una nueva lista que incluye el array anterior
   const AddFavoriteMovie = (movie) => {
-    //agrego un condicional para que no se dupliquen los favoritos
+
     const existInFavorites = favorites.find(
       (favorite) => favorite.id === movie.id)
-
+    //agrego un condicional para que no se dupliquen los favoritos
     if (!existInFavorites) {
       const newFavoriteList = [...favorites, movie]
       setFavorites(newFavoriteList)
@@ -69,11 +68,13 @@ function App() {
 
   //Borramos una pelicula del array favorites
   //Como vimos en clase usamos un filtro para crear un nuevo array que no contenga la pelicula que queremos sacar de la lista
+  //la guardo en el localStorage
   const DelFavoriteMovie = (movie) => {
     const newFavoriteList = favorites.filter(
       (favorite) => favorite.id !== movie.id
     )
       setFavorites(newFavoriteList)
+      saveLocalStorage(newFavoriteList)
   };
 
   //agrego funcionalidad para local storage
@@ -92,14 +93,14 @@ function App() {
       </div>
 
             <div >
-        <h1 className="text-3xl text-white">Favorites</h1>
+        <h1 className="text-2xl text-yellow-300">Mis favoritas</h1>
         <FavoriteList movies={favorites} 
         favoriteClick={DelFavoriteMovie} 
         favoriteComponent={DelFavorites} />
       </div>
 
       <div >
-      <h1 className="text-3xl text-white">Moovies</h1>
+      <h1 className="text-3xl text-yellow-300">Peliculas</h1>
         <MovieList movies={movies} 
         favoriteClick={AddFavoriteMovie} 
         favoriteComponent={AddFavorites} 
@@ -111,9 +112,4 @@ function App() {
 } export default App;
 
 //Si el buscador es null popup
-//cambiar favoritesComponent
-//cambiar AddFavorites
-//agregar exepciones con popup
 //agregar respuesta cuando no se encuentra la pelicula deseada 
-//agregar proteccion para que no se pueda seleccionar varias veces la misma pelicula
-//agrepar popup si existe pelicula en favoritos.
