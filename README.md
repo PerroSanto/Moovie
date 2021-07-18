@@ -11,3 +11,4 @@
 * Se desactivo Webkit para tener compatibilidad con todos los navegadores.
 * Botón de mas info en la descripción de la película para evitar overflow del texto.
 * Centrado de icono de búsqueda.
+* Ventana de info popup
