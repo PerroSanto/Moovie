@@ -20,7 +20,7 @@ return (
     <h1 className="my-8 text-3xl text-yellow-300">Peliculas</h1>
     <div className="p-8 my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
     {props.movies.map((movie) => (
-        <div className="p-8s">
+        <div className="p-8">
             <div key={movie.id} className="grid-cols-2">
                 <div className="h-96 w-64 max-w-screen-xl relative ">
                 { movie.poster_path === null ? <div className="h-96 w-64 max-w-screen-xl shadow-2xl rounded-xl bg-gray-800 relative text-white"> No disponible</div> :

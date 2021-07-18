@@ -20,6 +20,9 @@ function App() {
   //Hook para el manejo de valores de busqueda.
   const [ searchValue, setSearchValue ] = useState('');
 
+  //Hook para el manejo de valor de la ventana de MovieInfo.
+  const [ buttonInfo, setButtonInfo ] = useState(false);
+
   //Con esta funcion me traigo las peliculas de la api y las convierto al formato JSON.
   const getMovieRequest = async (searchValue) => {
     const apiKey = '99a9f00b989a22d5530bdc3521bdc1de'

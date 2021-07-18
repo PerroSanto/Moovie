@@ -1,20 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-const MovieInfo = () => {
-    return (
-        <>
-            <div className="bg-white bg-opacity-50 absolute inset-0 flex justify-center items-center hidden" id="overlay">
-                <div className="bg-gray-200 ">
-                    <div className="flex justify-between items-center">
-                        <h1 className="text-lg font-bold"> this is modal</h1>
-                    </div>
-                   
-                </div>    
-
+function MovieInfo(props) {
+    return (props.trigger) ? (
+        <div className="fixed top-0 left-0 w-full h-full bg-transparent flex justify-center items-center">
+        <div className="relative p-32 w-full max-w-2xl bg-black rounded-xl bg-opacity-80">
+        <h1 className="text-md text-white">{props.info}</h1>
+                <button className="absolute top-4 right-4 bg-yellow-300 rounded-md w-20 h-8 text-md" onClick={() => props.setTrigger(false)}>Cerrar</button>
+                { props.children }
             </div>
-        </>
-    );
+            </div>
+    ) : "";
+}
 
-
-
-}; export default MovieInfo;
+export default MovieInfo
