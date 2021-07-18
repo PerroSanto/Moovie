@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//Parte izquierda de la barra superior donde se encuentra el logo armado con css Tailwind.
 const LHeader = (props) => {
     return (
         <div className="bg-black m-0 p-2">

@@ -11,13 +11,16 @@ import FindMovie from './components/FindMovie';
 
 function App() {
 
+  //Hook para actualizar el listado de peliculas.
   const [ movies, setMovies ] = useState([]);
 
-  //Agrego el hook para el manejo de los favoritos
+  //Agrego el hook para el manejo de los favoritos.
   const [ favorites, setFavorites ] = useState([]);
 
+  //Hook para el manejo de valores de busqueda.
   const [ searchValue, setSearchValue ] = useState('');
 
+  //Con esta funcion me traigo las peliculas de la api y las convierto al formato JSON.
   const getMovieRequest = async (searchValue) => {
     const apiKey = '99a9f00b989a22d5530bdc3521bdc1de'
     const api = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=es-AR&query=${searchValue}&page=1&include_adult=false`
@@ -56,7 +59,7 @@ function App() {
       setFavorites(newFavoriteList)
       saveLocalStorage(newFavoriteList)
     } else {
-      //agregar exepcion!
+      //excepcion por pelicula duplicada en favoritos.
       window.alert("Esta pelicula ya esta en tus favoritos");
     }
   };
@@ -93,14 +96,13 @@ function App() {
       </div>
 
             <div >
-        <h1 className="text-2xl text-yellow-300">Mis favoritas</h1>
         <FavoriteList movies={favorites} 
         favoriteClick={DelFavoriteMovie} 
         favoriteComponent={DelFavorites} />
       </div>
 
       <div >
-      <h1 className="text-3xl text-yellow-300">Peliculas</h1>
+      
         <MovieList movies={movies} 
         favoriteClick={AddFavoriteMovie} 
         favoriteComponent={AddFavorites} 
@@ -110,6 +112,3 @@ function App() {
     </div>
   );
 } export default App;
-
-//Si el buscador es null popup
-//agregar respuesta cuando no se encuentra la pelicula deseada 

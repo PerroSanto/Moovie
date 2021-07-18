@@ -1,5 +1,11 @@
 import React from 'react';
 
+/*
+Parte central de la barra de busqueda.
+Aca se lee el input que escribio el usuario para la busqueda y
+con un evento devuelvo el valor con un getElementById cuando 
+se hace click sobre un div formateado como boton.
+*/
 const SearchBox = (props) => {
     //pasamos el componente desde app y lo ubicamos en el div correspondiente
     const SearchComponent = props.searchComponent;

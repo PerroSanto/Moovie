@@ -1,11 +1,17 @@
 import React from 'react';
 
+/*
+Aca armo la lista de favoritos, si veo que no hay nada guardado de la info que traigo del 
+Local storage, devuelvo un cuadro con formato de igagen de la pelicula con un texto
+Agrega tus favoritas para que el usuario se de cuenta. Si hay peliculas guardadas
+Las muestro.
+*/
 const FavoriteList = (props) => {
     //pasamos el componente desde app y lo ubicamos en el div correspondiente
     const FavoriteComponent = props.favoriteComponent;
-    //console.log(props.movies)
 return (
     <>
+    <h1 className="my-8 text-2xl text-yellow-300">Mis favoritas</h1>
     { props.movies.length === 0 ? 
 
     <div className="flex grid-cols-7 overflow-x-auto scrollbar">
