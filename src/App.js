@@ -23,6 +23,9 @@ function App() {
   //Hook para el manejo de valor de la ventana de MovieInfo.
   const [ buttonInfo, setButtonInfo ] = useState(false);
 
+  ////Hook para el manejo de valor de la ventana de MovieInfo popup.
+  const [ movieOverview, setmovieOverview ] = useState('');
+
   //Con esta funcion me traigo las peliculas de la api y las convierto al formato JSON.
   const getMovieRequest = async (searchValue) => {
     const apiKey = '99a9f00b989a22d5530bdc3521bdc1de'
@@ -72,6 +75,13 @@ function App() {
     window.alert(movie.overview);
   };
 
+  //muestro mas info sobre la pelicula con mi popup
+  const ShowMoreInfoPopup = (movie) => {
+    const movieOverview = movie.overview
+    setmovieOverview(movieOverview)
+    setButtonInfo(true)
+  };
+
   //Borramos una pelicula del array favorites
   //Como vimos en clase usamos un filtro para crear un nuevo array que no contenga la pelicula que queremos sacar de la lista
   //la guardo en el localStorage
@@ -109,9 +119,13 @@ function App() {
         <MovieList movies={movies} 
         favoriteClick={AddFavoriteMovie} 
         favoriteComponent={AddFavorites} 
-        moreInfo={ShowMoreInfo}/>
-        <MovieInfo />
+        moreInfo={ShowMoreInfoPopup}/>
       </div>
+
+      <div>
+        <MovieInfo trigger={buttonInfo} setTrigger={setButtonInfo} info={movieOverview}/>
+      </div>
+
     </div>
   );
 } export default App;
