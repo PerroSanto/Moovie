@@ -6,6 +6,8 @@ import RHeader from './components/RHeader';
 import AddFavorites from './components/AddFavorites';
 import DelFavorites from './components/DelFavorites';
 import FavoriteList from './components/FavoriteList';
+import MovieInfo from './components/MovieInfo';
+import FindMovie from './components/FindMovie';
 
 function App() {
 
@@ -60,6 +62,11 @@ function App() {
     }
   };
 
+  //muestro mas info sobre la pelicula
+  const ShowMoreInfo = (movie) => {
+    window.alert(movie.overview);
+  };
+
   //Borramos una pelicula del array favorites
   //Como vimos en clase usamos un filtro para crear un nuevo array que no contenga la pelicula que queremos sacar de la lista
   const DelFavoriteMovie = (movie) => {
@@ -79,7 +86,8 @@ function App() {
       <div className="grid grid-cols-3 gap-0">
         <LHeader/>
         <SearchBox searchValue={searchValue} 
-        setSearchValue={setSearchValue}/>
+        setSearchValue={setSearchValue}
+        searchComponent={FindMovie} />
         <RHeader />
       </div>
 
@@ -94,7 +102,9 @@ function App() {
       <h1 className="text-3xl text-white">Moovies</h1>
         <MovieList movies={movies} 
         favoriteClick={AddFavoriteMovie} 
-        favoriteComponent={AddFavorites} />
+        favoriteComponent={AddFavorites} 
+        moreInfo={ShowMoreInfo}/>
+        <MovieInfo />
       </div>
     </div>
   );

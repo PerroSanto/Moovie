@@ -22,9 +22,11 @@ return (
                             </div>
 
                         </div>
-                        <div className=" p-2 mx-2 my-8 h-72 overflow-y-auto scrollbar">
-                        <h1 className="tracking-wider items-center text-sm text-justify">{movie.overview}</h1>
+                        <div className=" p-2 mx-2 my-8 h-72">
+                        <h1 className="tracking-wider items-center text-sm text-justify">{movie.overview.substring(0, 350)}...</h1>
+                        <button onClick={() => props.moreInfo(movie)}>Mas info</button>
                         </div>
+                        
                     </div>
                 </div>
                 }
