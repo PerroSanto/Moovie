@@ -77,7 +77,7 @@ function App() {
 
   //muestro mas info sobre la pelicula con mi popup
   const ShowMoreInfoPopup = (movie) => {
-    const movieOverview = movie.overview
+    const movieOverview = movie
     setmovieOverview(movieOverview)
     setButtonInfo(true)
   };
